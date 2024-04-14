@@ -103,7 +103,7 @@ func (p *Poly) Polynomial() uint64 {
 	return p.poly
 }
 
-// Checksum returns CRC-64 checksum of the data in big-endian byte order.
+// Checksum returns the CRC-64 checksum of data in big-endian byte order.
 func (p *Poly) Checksum(data []byte) uint64 {
 	return crc64.Update(0, p.stdlib, data)
 }
