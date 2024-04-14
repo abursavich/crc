@@ -9,8 +9,8 @@ combine independently calculated checksums of sequential blocks of data.
 The algorithm for combining checksums is adapted from [zlib] by Mark Adler.
 
 
-[license]: https://raw.githubusercontent.com/abursavich/crcx/main/LICENSE
-[license-img]: https://img.shields.io/badge/license-mit-blue.svg?style=for-the-badge
+[license]: https://raw.githubusercontent.com/abursavich/crc/main/LICENSE
+[license-img]: https://img.shields.io/badge/license-zlib-blue.svg?style=for-the-badge
 
 [godev]: https://pkg.go.dev/bursavich.dev/crc
 [godev-img]: https://img.shields.io/static/v1?logo=go&logoColor=white&color=00ADD8&label=dev&message=reference&style=for-the-badge
