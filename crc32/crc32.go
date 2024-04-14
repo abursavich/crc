@@ -18,14 +18,14 @@ import (
 	"hash"
 	"hash/crc32"
 
-	"bursavich.dev/crc/internal/shared"
+	"bursavich.dev/crc/internal/lazy"
 )
 
 // The size of a CRC-32 checksum in bytes.
 const Size = 4
 
-var ieeePoly = shared.Val[*Poly]{
-	New: func() *Poly {
+var ieeePoly = lazy.Value[*Poly]{
+	Init: func() *Poly {
 		return makePoly(crc32.IEEE)
 	},
 }
@@ -37,8 +37,8 @@ func IEEE() *Poly {
 	return ieeePoly.Get()
 }
 
-var castPoly = shared.Val[*Poly]{
-	New: func() *Poly {
+var castPoly = lazy.Value[*Poly]{
+	Init: func() *Poly {
 		return makePoly(crc32.Castagnoli)
 	},
 }
@@ -50,8 +50,8 @@ func Castagnoli() *Poly {
 	return castPoly.Get()
 }
 
-var koopPoly = shared.Val[*Poly]{
-	New: func() *Poly {
+var koopPoly = lazy.Value[*Poly]{
+	Init: func() *Poly {
 		return makePoly(crc32.Koopman)
 	},
 }

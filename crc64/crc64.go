@@ -18,14 +18,14 @@ import (
 	"hash"
 	"hash/crc64"
 
-	"bursavich.dev/crc/internal/shared"
+	"bursavich.dev/crc/internal/lazy"
 )
 
 // The size of a CRC-64 checksum in bytes.
 const Size = 8
 
-var isoPoly = shared.Val[*Poly]{
-	New: func() *Poly {
+var isoPoly = lazy.Value[*Poly]{
+	Init: func() *Poly {
 		return makePoly(crc64.ISO)
 	},
 }
@@ -35,8 +35,8 @@ func ISO() *Poly {
 	return isoPoly.Get()
 }
 
-var ecmaPoly = shared.Val[*Poly]{
-	New: func() *Poly {
+var ecmaPoly = lazy.Value[*Poly]{
+	Init: func() *Poly {
 		return makePoly(crc64.ECMA)
 	},
 }

@@ -4,18 +4,18 @@
 // Use of this source code is governed by the zlib license
 // which can be found in the LICENSE file.
 
-package shared
+package lazy
 
 import "sync"
 
-type Val[T any] struct {
-	New func() T
+type Value[T any] struct {
+	Init func() T
 
 	once sync.Once
 	val  T
 }
 
-func (v *Val[T]) Get() T {
-	v.once.Do(func() { v.val = v.New() })
+func (v *Value[T]) Get() T {
+	v.once.Do(func() { v.val = v.Init() })
 	return v.val
 }
