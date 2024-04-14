@@ -148,8 +148,8 @@ func (p *Poly) Combine(prev, next uint32, n int64) uint32 {
 func (p *Poly) multModP(a, b uint32) uint32 {
 	var v uint32
 	for m := uint32(1) << (nBits - 1); m != 0; m >>= 1 {
-		if (a & m) != 0 {
-			if v ^= b; (a & (m - 1)) == 0 {
+		if a&m != 0 {
+			if v ^= b; a&(m-1) == 0 {
 				return v
 			}
 		}

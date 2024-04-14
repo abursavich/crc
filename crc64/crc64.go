@@ -129,8 +129,8 @@ func (p *Poly) Combine(prev, next uint64, n int64) uint64 {
 func (p *Poly) multModP(a, b uint64) uint64 {
 	var v uint64
 	for m := uint64(1) << (nBits - 1); m != 0; m >>= 1 {
-		if (a & m) != 0 {
-			if v ^= b; (a & (m - 1)) == 0 {
+		if a&m != 0 {
+			if v ^= b; a&(m-1) == 0 {
 				return v
 			}
 		}
