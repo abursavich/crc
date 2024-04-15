@@ -1,3 +1,5 @@
 module bursavich.dev/crc
 
-go 1.22.1
+go 1.22
+
+toolchain go1.22.2
